@@ -1,0 +1,19 @@
+
+local nPort = 3141
+local sHostname = "http://raspberrypi.local"
+local ready = false
+
+local function setup(host, port)
+	nPort = port
+	sHostname = host
+	ready = true
+end
+
+local function send(data)
+	if ready then
+		local resp = http.get(sHostname .. ":" .. nPort .. "/" .. data).readAll()
+		return resp
+	else
+		error("You must setup the api first with MCtoPi.setup(host, port)")
+	end
+end
