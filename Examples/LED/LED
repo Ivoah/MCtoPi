@@ -1,8 +1,9 @@
-os.loadAPI("MCtoPi")
+os.loadAPI("/LED/MCtoPi")
 
 args = {...}
 
-MCtoPi.setup(args[1] or "http://raspberrypi.local:3141", args[2] or "top")
+MCtoPi.setup(args[1] or "http://raspberrypi.local", 3141)
+side = args[2] or "top"
 
 while true do
   MCtoPi.send(rs.getAnalogInput(side)*10)

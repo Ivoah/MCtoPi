@@ -1,8 +1,9 @@
-os.loadAPI("MCtoPi")
+os.loadAPI("/Door/MCtoPi")
 
 args = {...}
 
-MCtoPi.setup(args[1] or "http://raspberrypi.local:3141", args[2] or "back")
+MCtoPi.setup(args[1] or "http://raspberrypi.local", 3141)
+side = args[2] or "back"
 
 while true do
   s = MCtoPi.send()
