@@ -14,7 +14,10 @@ setup(SIG, OUT)
 
 class LED(MCtoPi.MCtoPi):
     def get(self, _output, _input):
-        output(SIG, _input)
+    	try:
+	        output(SIG, int(_input))
+	    except ValueError:
+	    	pass
 
 if __name__ == '__main__':
     print 'Serving on port 3141'
