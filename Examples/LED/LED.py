@@ -12,7 +12,7 @@ SIG = 23
 
 setup(SIG, OUT)
 
-p = PWM(LED, 100)
+p = PWM(SIG, 100)
 p.start(0)
 
 class LED(MCtoPi.MCtoPi):
