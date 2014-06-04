@@ -11,7 +11,7 @@ end
 
 function send(data)
 	if ready then
-		local resp = http.get(host .. ":" .. port .. "/" .. data or "").readAll()
+		local resp = http.get(host .. ":" .. port .. "/" .. (data or "")).readAll()
 		return resp
 	else
 		error("You must setup the api first with MCtoPi.setup(host, port)")
