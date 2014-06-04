@@ -12,10 +12,13 @@ SIG = 23
 
 setup(SIG, OUT)
 
+p = PWM(LED, 100)
+p.start(0)
+
 class LED(MCtoPi.MCtoPi):
     def get(self, _output, _input):
         try:
-            output(SIG, int(_input))
+            p.ChangeDutyCycle(int(_input))
         except ValueError:
             pass
 
