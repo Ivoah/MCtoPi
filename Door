@@ -1,0 +1,15 @@
+os.loadAPI("MCtoPi")
+
+args = {...}
+
+MCtoPi.setup(args[1] or "http://raspberrypi.local:3141", args[2] or "back")
+
+while true do
+  s = MCtoPi.send()
+  if s == '1' then
+    rs.setOutput(side, true)
+  else
+    rs.setOutput(side, false)
+  end
+  sleep(tonumber(args[3]) or 1)
+end
