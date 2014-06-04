@@ -8,18 +8,18 @@ import MCtoPi
 
 setmode(BCM)
 
-SIG = 17
+SIG = 23
 
-setup(SIG, IN)
+setup(SIG, OUT)
 
-class Door(MCtoPi.MCtoPi):
+class LED(MCtoPi.MCtoPi):
     def get(self, _output, _input):
-        _output.write(input(SIG))
+        output(SIG, _input)
 
 if __name__ == '__main__':
     print 'Serving on port 3141'
     try:
-        MCtoPi.start(Door, 3141)
+        MCtoPi.start(LED, 3141)
     except KeyboardInterrupt:
         pass
     cleanup()

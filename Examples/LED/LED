@@ -1,0 +1,10 @@
+os.loadAPI("MCtoPi")
+
+args = {...}
+
+MCtoPi.setup(args[1] or "http://raspberrypi.local:3141", args[2] or "top")
+
+while true do
+  MCtoPi.send(rs.getAnalogInput(side)*10)
+  sleep(tonumber(args[3]) or 1)
+end
